@@ -1,7 +1,7 @@
 
 PennController.ResetPrefix(null);
 
-PennController.Sequence( "instructions1", "info1", randomize("items") );
+PennController.Sequence( "instructions1", "info1", randomize("items"),"send", "end" );
 
 PennController( "instructions1" ,
     newHtml("instructions", "instructions.html")
@@ -97,3 +97,21 @@ PennController.Template( PennController.GetTable("items_metob_apt.csv"),
 
 
     );
+PennController.SendResults( "send" );
+
+    PennController("end",
+    newText("Danke fuer die Teilnahme!")
+    .settings.css("font-size", "16pt")
+          .settings.center()
+          .settings.css("margin-top", "200pt")
+        .print()
+    ,
+    newText("Dein Clickworker code ist: 6794")
+    .settings.css("font-size", "16pt")
+          .settings.center()
+          .settings.css("margin-top", "180pt")
+        .print()
+    ,
+    newButton("void")
+        .wait()
+);
