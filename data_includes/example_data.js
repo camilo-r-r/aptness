@@ -21,7 +21,7 @@ PennController( "info1" ,
         .wait( getHtml("info").test.complete())
 );
 
-PennController.Template( PennController.GetTable("items_metob.csv"),
+PennController.Template( PennController.GetTable("items_metob_apt.csv"),
                  variable => PennController("items",
         newText("context",variable.context)
             .settings.css("font-size", "30px")
@@ -42,8 +42,9 @@ PennController.Template( PennController.GetTable("items_metob.csv"),
            .wait()
       ,
             newText("scale_title", "Wie gut ist diese Metapher?")
-            .settings.css("font-size", "30px")
+            .settings.css("font-size", "25px")
             .settings.css("padding-top", "50px")
+            .settings.bold()
             .settings.center()
            //.settings.css("padding-left", "100pt")
             .print()
@@ -51,6 +52,7 @@ PennController.Template( PennController.GetTable("items_metob.csv"),
        newScale("rating", 100)
       .settings.slider()
       .settings.center()
+      .settings.css("padding-top", "30px")
       .settings.before( newText("left", "sehr schlecht") )
       .settings.after( newText("right", " sehr gut") )
       .print()
